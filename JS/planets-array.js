@@ -13,7 +13,7 @@
     ];
 
     /**
-     * TODO:
+     * TODO: DONE
      * Read each console log below, and write some javascript code to perform
      * the step that it describes
      */
