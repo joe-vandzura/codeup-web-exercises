@@ -2,20 +2,16 @@
 
 // For Loops - Exercise 2
 console.log("For Loops - Exercise 2");
-
 let num = prompt("Please pick a number from one to ten");
-
 while (num > 10 || num < 1) {
     num = prompt("You chose a number outside of range. Please pick a number from one to ten");
 }
-
 function showMultiplicationTable(num) {
     for (let i = 1; i <= 10; i++) {
         let ans = num * i;
         console.log(num + " * " + i + " = " + ans);
     }
 }
-
 //The commented code below is a complete multiplication table
 /*function showMultiplicationTable(num) {
     for (let i = 1; i <= 10; i++) {
@@ -26,13 +22,11 @@ function showMultiplicationTable(num) {
         num++;
     }
 }*/
-
 showMultiplicationTable(num);
 
 
 // For Loops - Exercise 3
 console.log("For Loops - Exercise 3");
-
 for (let i = 0; i < 10; i++) {
     let random = Math.floor((Math.random() * (180)) + 20);
     let oddOrEven;
@@ -46,7 +40,6 @@ for (let i = 0; i < 10; i++) {
 
 // For Loops - Exercise 4
 console.log("For Loops - Exercise 4");
-
 //The commented code below is the answer using a while loop inside of a for loop
 /*for (let i = 1; i < 10; i++) {
     let count = 0;
@@ -55,7 +48,6 @@ console.log("For Loops - Exercise 4");
         count++;
     }
 }*/
-
 //The code below is the answer using two for loops
 for (let i = 1; i < 10; i++) {
     let count = 0;
@@ -68,7 +60,6 @@ for (let i = 1; i < 10; i++) {
 
 // For Loops - Exercise 5
 console.log("For Loops - Exercise 5");
-
 for (let i = 100; i > 0; i--) {
     console.log(i);
     i-=4;
