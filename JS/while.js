@@ -13,6 +13,7 @@ while (x < 65537) {
 console.log("--------------------While Loops - Exercise 2--------------------");
 // This is how you get a random number between 50 and 100
 var allCones = Math.floor(Math.random() * 50) + 50;
+
 do {
     var conesBought = Math.floor(Math.random() * 5) + 1;
      if ((allCones - conesBought) > 0) {

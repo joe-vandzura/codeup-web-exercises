@@ -21,6 +21,7 @@ for (let i = 1; i < 50; i++) {
     }
 }
 
+
 // The code below is solving this exercise with while loops
 /*while (userOddNum % 2 === 0) {
     userOddNum = prompt ("You did not pick an odd number. Please pick an odd number between 1 and 50.");
