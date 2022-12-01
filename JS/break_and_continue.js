@@ -1,7 +1,7 @@
 "use strict";
 
 // Break and Continue Exercise
-console.log("Break and Continue Exercise");
+console.log("--------------------Break and Continue Exercise--------------------");
 
 let userOddNum = prompt("Please pick an odd number between 1 and 50.");
 for (let i = 0; i < 100; i++)
