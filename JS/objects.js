@@ -204,11 +204,11 @@
 
     function showBookInfo(library) {
         for (let i = 0; i < library.length; i++) {
-            return library[i];
+            console.log(library[i]);
         }
     }
 
     console.log(createBook());
-    console.log(showBookInfo(library));
+    showBookInfo(library);
 
 })();
