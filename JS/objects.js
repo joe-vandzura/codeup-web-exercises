@@ -13,10 +13,10 @@
      */
 
     console.log("---------------Exercise 1---------------");
-    var person = new Object();
-
-    person.firstName = "Joey";
-    person.lastName = "Vandzura";
+    var person = {
+        firstName: "Joey",
+        lastName: "Vandzura"
+    };
 
     console.log(person);
     console.log(person.firstName);
@@ -61,25 +61,6 @@
          {name: 'George', amount: 320}
      ];
 
-     /*shoppers.forEach(function (person) {
-         if (shoppersamount > 200) {
-             let discountPercent = .12;
-             let newPrice = shoppers[i].amount * (1 - discountPercent);
-             let discountAmount = shoppers[i].amount * discountPercent;
-             console.log(`Congrats ${shoppers[i].name}, you got a discount! Your total before was $${shoppers[i].amount.toFixed(2)}, now it is $${newPrice.toFixed(2)} after your discount of $${discountAmount.toFixed(2)} was added.`);
-         } else {
-             let discountThreshold = 200;
-             let moneyLeft = discountThreshold - shoppers[i].amount;
-             console.log(`Sorry ${shoppers[i].name}, you still need to spend $${moneyLeft.toFixed(2)} before receiving the 12% discount!`);
-         }
-     });*/
-
-    var shoppers = [
-        {name: 'Cameron', amount: 180},
-        {name: 'Ryan', amount: 250},
-        {name: 'George', amount: 320}
-    ];
-
         shoppers.forEach((shopper) => {
         if (shopper.amount > 200) {
             let discountPercent = .12;
@@ -92,19 +73,6 @@
             console.log(`Sorry ${shopper.name}, you still need to spend $${moneyLeft.toFixed(2)} before receiving the 12% discount!`);
         }
     });
-
-    /*for (let i = 0; i < shoppers.length; i++) {
-        if (shoppers[i].amount > 200) {
-            let discountPercent = .12;
-            let newPrice = shoppers[i].amount * (1 - discountPercent);
-            let discountAmount = shoppers[i].amount * discountPercent;
-            console.log(`Congrats ${shoppers[i].name}, you got a discount! Your total before was $${shoppers[i].amount.toFixed(2)}, now it is $${newPrice.toFixed(2)} after your discount of $${discountAmount.toFixed(2)} was added.`);
-        } else {
-            let discountThreshold = 200;
-            let moneyLeft = discountThreshold - shoppers[i].amount;
-            console.log(`Sorry ${shoppers[i].name}, you still need to spend $${moneyLeft.toFixed(2)} before receiving the 12% discount!`);
-        }
-    }*/
 
 
     /** TODO: DONE
@@ -125,8 +93,8 @@
         {title: "The Cat in the Hat", author: {firstName: "Dr.", lastName: "Seuss"}},
         {title: "The Lightning Thief", author: {firstName: "Rick", lastName: "Riordan"}},
         {title: "The Enemy", author: {firstName: "Charlie", lastName: "Higson"}},
-        {title: "Lone Survivor", author: {firstName: "Marcus", lastName: "Luttrell"}},
-        {title: "American Sniper", author: {firstName: "Chris", lastName: "Kyle"}}
+        {title: "The Lone Survivor", author: {firstName: "Marcus", lastName: "Luttrell"}},
+        {title: "The American Sniper", author: {firstName: "Chris", lastName: "Kyle"}}
     ];
 
     for (let i = 0; i < books.length; i++) {
@@ -208,7 +176,8 @@
         }
     }
 
+    console.log("Logging function createBook that outputs all books created");
     console.log(createBook());
+    console.log("Logging showBook info that outputs properties for each book");
     showBookInfo(library);
-
 })();
