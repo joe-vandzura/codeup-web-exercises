@@ -10,6 +10,7 @@
     let playerHand = [];
     let computerHand = [];
     let gameMenuChoice;
+    let roundCount = 0;
 
 
     //-------------------Creates deck of cards------------------------------>
@@ -57,6 +58,9 @@
         if (parseFloat(mainMenuChoice) === 1) {
             let playerHandValue = 0;
             let computerHandValue = 0;
+            playerHand = [];
+            computerHand = [];
+            roundCount = 0;
             deckOfCards();
             startGame(playerHandValue, computerHandValue);
         }
@@ -94,23 +98,22 @@
             }
         } while (parseFloat(gameMenuChoice) !== 1)
         if (parseFloat(gameMenuChoice) === 1) {
-            console.log("YOU CHOSE 1");
             hitMove(playerHand, playerHandValue, computerHandValue);
         } else if (parseFloat(gameMenuChoice) === 2) {
             console.log("YOU CHOSE 2");
         }
     }
 
-    function hitMove(hand, playerHandValue, computerHandValue) {
+    function hitMove(playerHand, playerHandValue, computerHandValue) {
         playerHand.push(deck[0]);
         deck.splice(0, 1);
-        console.log(playerHandValue + "!!!");
-        if (typeof playerHand[2].rank !== "number") {
+        if (typeof playerHand[(roundCount+2)].rank !== "number") {
             playerHandValue += 10;
         } else {
-            playerHandValue += playerHand[2].rank;
+            console.log(`----------------\n${playerHand[(roundCount+2)].rank}\n${typeof playerHand[(roundCount+2)].rank}\n----------------`)
+            playerHandValue += playerHand[(roundCount+2)].rank;
         }
-        console.log(`You hit: ${playerHand[2].rank} of ${playerHand[2].suit}\nYour total: ${playerHandValue}`);
+        console.log(`You hit: ${playerHand[(roundCount+2)].rank} of ${playerHand[(roundCount+2)].suit}\nYour total: ${playerHandValue}`);
         if (playerHandValue > 21) {
             console.log("BUST!\nLoser!");
             computerScore++;
@@ -118,15 +121,24 @@
         } else if (playerHandValue < 21) {
             let response = "Your hand: ";
             for (let i = 0; i < playerHand.length; i++) {
-                response.concat(`${playerHand[i].rank} of ${playerHand[i].suit}`)
+                if (i == playerHand.length-1) {
+                    response = response.concat(`${playerHand[i].rank} of ${playerHand[i].suit}`);
+                } else {
+                    response = response.concat(`${playerHand[i].rank} of ${playerHand[i].suit}, `);
+                }
             }
             console.log(response);
-            console.log("HERE!!!");
+            roundCount++;
+            gameMenu();
         } else if (playerHandValue === 21) {
             console.log("COMPUTER BUSTS!\nWinner!");
             userScore++;
             mainMenu();
         }
+    }
+
+    function standMove () {
+        console.log(`Player stands...\nYour total: ${playerHandValue}`);
     }
 
     function endGame() {
