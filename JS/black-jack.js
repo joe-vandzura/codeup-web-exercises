@@ -86,6 +86,20 @@
         console.log(gameMenu(playerHandValue, computerHandValue));
     }
 
+    function showHand() {
+        for (let i = 0; i < playerHand.length-1; i++) {
+            let response = "Your hand: ";
+            for (let i = 0; i < playerHand.length; i++) {
+                if (i == playerHand.length - 1) {
+                    response = response.concat(`${playerHand[i].rank} of ${playerHand[i].suit}`);
+                } else {
+                    response = response.concat(`${playerHand[i].rank} of ${playerHand[i].suit}, `);
+                }
+                console.log(response);
+            }
+        }
+    }
+
     function gameMenu(playerHandValue, computerHandValue) {
         console.log("GAME MENU\n\t\t1. Hit\n\t\t2. Stand\n\t\t3. Return to Main Menu\nChoose 1, 2, or 3 and press Enter: ");
         do {
@@ -119,16 +133,6 @@
             computerScore++;
             mainMenu();
         } else if (playerHandValue < 21) {
-            let response = "Your hand: ";
-            for (let i = 0; i < playerHand.length; i++) {
-                if (i == playerHand.length-1) {
-                    response = response.concat(`${playerHand[i].rank} of ${playerHand[i].suit}`);
-                } else {
-                    response = response.concat(`${playerHand[i].rank} of ${playerHand[i].suit}, `);
-                }
-            }
-            console.log(response);
-            roundCount++;
             gameMenu();
         } else if (playerHandValue === 21) {
             console.log("COMPUTER BUSTS!\nWinner!");
