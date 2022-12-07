@@ -92,6 +92,11 @@
         }
         computerHand.push(deck[0]);
         deck.splice(0, 1);
+        if (playerHandValue === 21) {
+            console.log("WOW, YOUR'E LUCKY!\nWinner!");
+            mainMenu();
+            return;
+        }
         console.log(`Your hand: ${playerHand[0].rank} of ${playerHand[0].suit}, ${playerHand[1].rank} of ${playerHand[1].suit}\nYour total: ${playerHandValue}\nComputer's hand (first card is face down): ${computerHand[0].rank} of ${computerHand[0].suit}`);
         computerHandValue += computerHand[0].value;
         console.log(gameMenu(playerHandValue, computerHandValue));
@@ -175,33 +180,39 @@
 
         //------------CHANGE COMPUTER DECISION LOGIC HERE-----------------
     function computerDecision(playerHandValue, computerHandValue) {
-        if (computerHandValue <= 10) {
+        if (computerHandValue > playerHandValue) {
+            computerStands(playerHandValue, computerHandValue);
+        } else if (computerHandValue < playerHandValue) {
             computerHits(playerHandValue, computerHandValue);
-        } else if (computerHandValue > 10 && computerHandValue < 15) {
-            let computerDecision = Math.floor(Math.random() * 50) + 1;
-            if (computerDecision <= 30) {
+        } else {
+            if (computerHandValue <= 10) {
                 computerHits(playerHandValue, computerHandValue);
-            } else if (computerDecision > 30) {
-                computerStands(playerHandValue, computerHandValue);
-            }
-        } else if (computerHandValue >= 15 && computerHandValue <= 18) {
-            let computerDecision = Math.floor(Math.random() * 50) + 1;
-            if (computerDecision > 35) {
-                computerHits(playerHandValue, computerHandValue);
-            } else if (computerDecision <= 35) {
-                computerStands(playerHandValue, computerHandValue);
-            }
-        } else if (computerHandValue > 18) {
+            } else if (computerHandValue > 10 && computerHandValue < 15) {
+                let computerDecision = Math.floor(Math.random() * 50) + 1;
+                if (computerDecision <= 30) {
+                    computerHits(playerHandValue, computerHandValue);
+                } else if (computerDecision > 30) {
+                    computerStands(playerHandValue, computerHandValue);
+                }
+            } else if (computerHandValue >= 15 && computerHandValue <= 18) {
+                let computerDecision = Math.floor(Math.random() * 50) + 1;
+                if (computerDecision > 35) {
+                    computerHits(playerHandValue, computerHandValue);
+                } else if (computerDecision <= 35) {
+                    computerStands(playerHandValue, computerHandValue);
+                }
+            } else if (computerHandValue > 18 && computerHandValue < 21) {
                 let computerDecision = Math.floor(Math.random() * 50) + 1;
                 if (computerDecision > 45) {
                     computerHits(playerHandValue, computerHandValue);
                 } else if (computerDecision <= 45) {
                     computerStands(playerHandValue, computerHandValue);
                 }
-        } else if (computerHandValue === 21) {
-            console.log("COMPUTER GOT 21!\nLOSER!");
-            computerScore++;
-            mainMenu();
+            } else if (computerHandValue === 21) {
+                console.log("COMPUTER GOT 21!\nLOSER!");
+                computerScore++;
+                mainMenu();
+            }
         }
     }
 
