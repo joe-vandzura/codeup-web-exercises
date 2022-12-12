@@ -252,7 +252,7 @@
         } else if (computerHandValue < playerHandValue) {
             console.log("Winner!");
             playerScore++;
-        } else if (computerHandValue === playerHandValue) {
+        } else if (computerHandValue == playerHandValue) {
             console.log("Draw.");
         }
         mainMenu();
