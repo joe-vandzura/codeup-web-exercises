@@ -94,6 +94,7 @@
         deck.splice(0, 1);
         if (playerHandValue === 21) {
             console.log("WOW, YOUR'E LUCKY!\nWinner!");
+            playerScore++;
             mainMenu();
             return;
         }
@@ -112,7 +113,7 @@
                 }
             }
         console.log(responseForPlayer);
-        gameMenu(playerHandValue);
+        //gameMenu(playerHandValue);
     }
 
     function gameMenu(playerHandValue, computerHandValue) {
@@ -140,9 +141,9 @@
             playerHandValue += playerHand[roundCount+2].value;
         } else if (playerHand[roundCount+2].rank === "ace") {
             if (playerHandValue + 11 > 21) {
-                playerHandValue += playerHand[computerRoundCount+2].loseValue;
+                playerHandValue += playerHand[roundCount+2].loseValue;
             } else if (playerHandValue + 11 <= 21) {
-                playerHandValue += playerHand[computerRoundCount+2].value;
+                playerHandValue += playerHand[roundCount+2].value;
             }
         }
         console.log(`You hit: ${playerHand[(roundCount+2)].rank} of ${playerHand[(roundCount+2)].suit}\nYour total: ${playerHandValue}`);
@@ -153,12 +154,12 @@
         } else if (playerHandValue < 21) {
             roundCount++;
             showHand(playerHandValue);
+            gameMenu(playerHandValue, computerHandValue);
         } else if (playerHandValue === 21) {
             console.log("YOU GOT 21!\nWinner!");
             playerScore++;
             mainMenu();
         }
-        computerDecision(playerHand, playerHandValue, computerHandValue);
     }
 
     function standMove (playerHandValue, computerHandValue) {
@@ -184,6 +185,10 @@
             computerStands(playerHandValue, computerHandValue);
         } else if (computerHandValue < playerHandValue) {
             computerHits(playerHandValue, computerHandValue);
+        } else if (computerHandValue > 21) {
+            console.log("Winner!");
+            playerScore++;
+            mainMenu();
         } else {
             if (computerHandValue <= 10) {
                 computerHits(playerHandValue, computerHandValue);
@@ -246,14 +251,14 @@
 
     function computerStands(playerHandValue, computerHandValue) {
         console.log(`Computer stands...\nComputer total: ${computerHandValue}`);
-        if (computerHandValue > playerHandValue) {
-            console.log("Loser!");
-            computerScore++;
+        if (computerHandValue == playerHandValue) {
+            console.log("Draw.");
         } else if (computerHandValue < playerHandValue) {
             console.log("Winner!");
             playerScore++;
-        } else if (computerHandValue == playerHandValue) {
-            console.log("Draw.");
+        } else if (computerHandValue > playerHandValue) {
+            console.log("Loser!");
+            computerScore++;
         }
         mainMenu();
     }
