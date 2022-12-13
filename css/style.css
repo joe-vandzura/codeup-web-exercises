@@ -1,4 +1,49 @@
-.fancy-header {
-    color: purple;
+#top {
+    text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-decoration: underline;
+}
+
+body, HTML {
+    color: white;
+    background-color: black;
+    background: url(/img/IMG_2936.jpg);
+    background-size: cover;
+    font-family: "Yuppy SC";
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+a {
+    color: #AAAAAA;
+}
+
+a:hover {
+    color: orange;
+}
+
+ul {
+    list-style-type: square;
+}
+
+table {
+    padding: 10px;
+    margin: 50px;
+    text-align: center;
+}
+
+td {
+    padding: 10px;
+    color: beige;
+    font-size: larger;
+}
+
+th {
+    font-size: x-large;
+    font-weight: bold;
+    font-style: italic;
+    font-weight: it;
     text-decoration: underline;
 }
