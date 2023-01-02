@@ -74,6 +74,7 @@ fieldset {
     /* See the example at: https://developer.mozilla.org/en-US/docs/Web/CSS/calc */
     /* HINT: Examples are available at: https://glitch.com/~input-button-width */
     width: calc(100% - 2px);
+    box-sizing: border-box;
     padding-top: 4px;
     padding-bottom: 4px;
     margin-top: .5em;
