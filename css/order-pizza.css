@@ -1,0 +1,18 @@
+.jumbotron {
+    display: flex;
+    justify-content: center;
+    background-image: url("/img/pizza-world-header.png");
+    height: 346px;
+    background-size: cover;
+    margin-bottom: 50px;
+}
+
+.jumbotron>div {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-size: xx-large;
+    font-weight: bold;
+    width: 100%;
+    opacity: 0.7;
+}
