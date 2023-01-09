@@ -8,14 +8,17 @@
 <body>
 
 <h1 id="main-header">Hello World!</h1>
+<button id="title-btn">Change Title</button>
 <ul>
-  <li data-dbid="1">Item 1</li>
+  <li data-dbid="1">Item 1 <button id="item-1-btn">Set text color of first list item to blue</button> </li>
   <li data-dbid="2">Item 2</li>
   <li data-dbid="3">Item 3</li>
   <li data-dbid="4">Item 4</li>
   <li data-dbid="5">Item 5</li>
 </ul>
+<button id="list-btn">Change color on every other list item to grey</button>
 <h2 id="sub-header">Hello Again.</h2>
+<button id="sub-header-btn">Change Sub-header Color</button>
 <p class="sub-paragraph">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
   eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -33,37 +36,152 @@
     var mainHeader = document.getElementById("main-header");
 
     // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-    mainHeader.innerHTML = "JavaScript is Cool";
+
+    var titleButton = document.getElementById('title-btn');
+
+    var changeTitleOne = function() {
+      mainHeader.innerHTML = "JavaScript is Cool";
+      changeButtonFunctionToOne();
+      }
+
+    var changeTitleTwo = function() {
+      mainHeader.innerHTML = "Hello World!";
+      changeButtonFunctionToTwo();
+    }
+
+    titleButton.addEventListener('click', changeTitleOne);
+
+    var changeButtonFunctionToOne = function() {
+      titleButton.removeEventListener('click', changeTitleOne);
+      titleButton.addEventListener('click', changeTitleTwo);
+    }
+
+    var changeButtonFunctionToTwo = function() {
+      titleButton.removeEventListener('click', changeTitleTwo);
+      titleButton.addEventListener('click', changeTitleOne);
+    }
+
 
     // TODO: Uncomment the next line and get the sub header element by id
     var subHeader = document.getElementById("sub-header");
 
     // TODO: Set the text color of subHeader to blue
-    subHeader.style.color = "blue";
+
+    var subButton = document.getElementById('sub-header-btn');
+
+    var changeSubHeaderOne = function() {
+      subHeader.style.color = "blue";
+      changeSubButtonFunctionToOne();
+    }
+
+    var changeSubHeaderTwo = function() {
+      subHeader.style.color = "black";
+      changeSubButtonFunctionToTwo();
+    }
+
+    subButton.addEventListener('click', changeSubHeaderOne);
+
+    var changeSubButtonFunctionToOne = function() {
+      subButton.removeEventListener('click', changeSubHeaderOne);
+      subButton.addEventListener('click', changeSubHeaderTwo);
+    }
+
+    var changeSubButtonFunctionToTwo = function() {
+      subButton.removeEventListener('click', changeSubHeaderTwo);
+      subButton.addEventListener('click', changeSubHeaderOne);
+    }
+
 
     // TODO: Uncomment the next line and get all list items
     var listItems = document.getElementsByTagName("li");
 
     // TODO: Set text color on every other list item to grey
-    for (let i = 0; i < listItems.length; i++) {
-      listItems[i].style.color = "grey";
-      i++;
+
+    var listButton = document.getElementById('list-btn');
+
+
+    var changeListItemsOne = function() {
+      for (let i = 0; i < listItems.length; i++) {
+        listItems[i].style.color = "grey";
+        i++;
+      }
+      changeListButtonFunctionToOne();
+    }
+
+    var changeListItemsTwo = function() {
+      for (let i = 0; i < listItems.length; i++) {
+        listItems[i].style.color = "black";
+        i++;
+      }
+      changeListButtonFunctionToTwo();
+    }
+
+    listButton.addEventListener('click', changeListItemsOne);
+
+    var changeListButtonFunctionToOne = function() {
+      listButton.removeEventListener('click', changeListItemsOne);
+      listButton.addEventListener('click', changeListItemsTwo);
+    }
+
+    var changeListButtonFunctionToTwo = function() {
+      listButton.removeEventListener('click', changeListItemsTwo);
+      listButton.addEventListener('click', changeListItemsOne);
     }
 
     // TODO: Set text color of li with dbid = 1 to blue
-    var dbid1;
-    for (let i = 0; i < listItems.length; i++) {
-      if (listItems[i].getAttribute("data-dbid") == "1") {
-        dbid1 = listItems[i];
+
+    var firstListItemButton = document.getElementById('item-1-btn');
+
+    var changeFirstListItemOne = function() {
+      var dbid1;
+      for (let i = 0; i < listItems.length; i++) {
+        if (listItems[i].getAttribute("data-dbid") === "1") {
+          dbid1 = listItems[i];
+        }
       }
+      dbid1.style.color = "blue";
+      changeFirstListItemButtonFunctionToOne();
     }
-    dbid1.style.color = "blue";
+
+    var changeFirstListItemTwo = function() {
+      var dbid1;
+      for (let i = 0; i < listItems.length; i++) {
+        if (listItems[i].getAttribute("data-dbid") === "1") {
+          dbid1 = listItems[i];
+        }
+      }
+      dbid1.style.color = "black";
+      changeFirstListItemButtonFunctionToTwo();
+    }
+
+    firstListItemButton.addEventListener('click', changeFirstListItemOne);
+
+    var changeFirstListItemButtonFunctionToOne = function() {
+      firstListItemButton.removeEventListener('click', changeFirstListItemOne);
+      firstListItemButton.addEventListener('click', changeFirstListItemTwo);
+    }
+
+    var changeFirstListItemButtonFunctionToTwo = function() {
+      firstListItemButton.removeEventListener('click', changeFirstListItemTwo);
+      firstListItemButton.addEventListener('click', changeFirstListItemOne);
+    }
 
     // TODO: Uncomment the next line and get all elements with class name sub-paragraph
     var subParagraphs = document.getElementsByClassName("sub-paragraph");
 
     // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
     subParagraphs[0].innerText = "Mission Accomplished!";
+
+    var listener = function (event) {
+      alert('You clicked the button!');
+    }
+
+    // add event listener to btn1
+    /*var titleButton = document.getElementById('title-btn');
+    btn1.addEventListener('click', changeTitle);*/
+
+
+
 
   })();
 </script>
