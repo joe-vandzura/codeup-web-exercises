@@ -6,17 +6,29 @@
 </head>
 <body>
 
-<h1>Header</h1>
+<h1 id="page-content">Hi, Mom!</h1>
 
-<p>Body Content</p>
+<p id="page-paragraph" class="page-content">This is the paragraph text content</p>
+
+<ul id="page-list" class="page-content">
+	<li class="page-list-items">List item one</li>
+	<li class="page-list-items">List item two</li>
+	<li class="page-list-items">List item three</li>
+</ul>
+
+<div id="page-div" class="page-content">
+	Here is the div text content
+</div>
 
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
     "use strict";
-    $(function() {
-        alert('The DOM has finished loading!');
-    });
+
+    $("li").css("font-size", "20px");
+    $("h1, p, li").css("background-color", "yellow");
+    alert($("h1").html);
+
 </script>
 </body>
 </html>
