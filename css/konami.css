@@ -1,0 +1,85 @@
+body {
+    background-color: black;
+}
+
+h1 {
+    color: #12a40a;
+}
+
+#controller {
+    border: #12a40a solid 1px;
+    width: 790px;
+    height: 570px;
+    background-image: url("../img/xbox_controller.png");
+}
+
+button {
+    cursor: pointer;
+}
+
+.btns {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    /*border: #12a40a solid 1px;*/
+}
+
+#xbox-btn {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    top: 35px;
+    left: 374px;
+}
+
+#left-btn {
+    position: relative;
+    top: 295px;
+    left: 222px;
+}
+
+#right-btn {
+    position: relative;
+    top: 295px;
+    left: 256px;
+}
+
+#up-btn {
+    position: relative;
+    top: 260px;
+    left: 324px;
+}
+
+#down-btn {
+    position: relative;
+    top: 330px;
+    left: 291px;
+}
+
+.letter-btns {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+}
+
+#a-btn {
+    position: relative;
+    top: 196px;
+    left: 599px;
+}
+
+#b-btn {
+    position: relative;
+    top: 150px;
+    left: 612px;
+}
+
+#start-btn {
+    position: relative;
+    top: 97px;
+    left: 469px;
+    border: none;
+}

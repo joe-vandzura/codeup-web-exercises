@@ -101,7 +101,7 @@ a {
 .profile-entry {
     margin: 0.5em;
 }
-.btn {
+.d-pad {
     border: 1px solid var(--main-link-color);
     color: var(--main-link-color);
     background: var(--light-bg);
