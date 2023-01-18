@@ -30,104 +30,102 @@
 
 
 
-    /*let xboxTurnOn = true;
+    let xboxTurnOn = true;
 
     let codTheme = new Audio("../mp3/CoD4Theme.mp3");
     let xboxOnSound = new Audio("../mp3/xbox_start_up.mp3");
     let xboxOffSound = new Audio("../mp3/xbox_turn_off.mp3");
 
-
-    $("#xbox-btn").click(function () {
-        if (xboxTurnOn === true) {
-            xboxOn();
-		} else if (xboxTurnOn === false) {
-            xboxOff()
-		}
-    });
-
-    let xboxOn = function() {
-        xboxOnSound.play();
-        var timeoutId = setTimeout(function () {
-            codTheme.play();
-        }, 1000);
-        xboxTurnOn = false;
-        changeButtonFunctionToOff();
-    }
-
-    let xboxOff = function() {
-        xboxOffSound.play();
-        codTheme.pause();
-        xboxTurnOn = true;
-        changeButtonFunctionToOn();
-    }
-
-
-    let changeButtonFunctionToOff = function() {
-        $("#xbox-btn").off('click');
-        console.log("HERE");
-        $("#xbox-btn").on('click', xboxOff());
-    }
-
-    let changeButtonFunctionToOn = function() {
-        $("#xbox-btn").off('click');
-        $("#xbox-btn").on('click', xboxOn());
-    }*/
-
-
     let konamiCode = "3838404037393739666513";
     let userInput = "";
 
-    $(document).keyup(function (event) {
-        let newKey = event.keyCode;
 
-        if (newKey === 38) {
-            $("#up-btn").css("background-color", "yellow");
+    $("#xbox-btn").click(function () {
+        if (xboxTurnOn === true) {
+            xboxOnSound.play();
             setTimeout(function () {
+                codTheme.play();
+            }, 1000);
+            $(document).keyup(function (event) {
+                let newKey = event.keyCode;
+
+                if (newKey === 38) {
+                    $("#up-btn").css("background-color", "yellow");
+                    setTimeout(function () {
+                        $("#up-btn").css("background-color", "transparent");
+                    }, 10);
+                } else if (newKey === 40) {
+                    $("#down-btn").css("background-color", "yellow");
+                    setTimeout(function () {
+                        $("#down-btn").css("background-color", "transparent");
+                    }, 10);
+                } else if (newKey === 37) {
+                    $("#left-btn").css("background-color", "yellow");
+                    setTimeout(function () {
+                        $("#left-btn").css("background-color", "transparent");
+                    }, 10);
+                } else if (newKey === 39) {
+                    $("#right-btn").css("background-color", "yellow");
+                    setTimeout(function () {
+                        $("#right-btn").css("background-color", "transparent");
+                    }, 10);
+                } else if (newKey === 66) {
+                    $("#b-btn").css("background-color", "yellow");
+                    setTimeout(function () {
+                        $("#b-btn").css("background-color", "transparent");
+                    }, 10);
+                } else if (newKey === 65) {
+                    $("#a-btn").css("background-color", "yellow");
+                    setTimeout(function () {
+                        $("#a-btn").css("background-color", "transparent");
+                    }, 10);
+                } else if (newKey === 13) {
+                    $("#start-btn").css("background-color", "yellow");
+                    setTimeout(function () {
+                        $("#start-btn").css("background-color", "transparent");
+                    }, 10);
+                }
+
+                userInput += "" + newKey;
+                if (userInput.indexOf(konamiCode) !== -1) {
+                    codTheme.pause();
+                    $("body").css("background-color", "red");
+                    // let jasonBourneSound = new Audio("../mp3/jason_bourne.mp3");
+                    // jasonBourneSound.play();
+                    let missionSuccess = new Audio("../mp3/mission_success.mp3");
+                    missionSuccess.play();
+                    userInput = "";
+                    setTimeout(function () {
+                        alert("You have added 30 lives!");
+                    }, 100);
+                }
+            });
+            xboxTurnOn = false;
+		} else if (xboxTurnOn === false) {
+            let newKey = event.keyCode;
+            if (newKey === 38) {
                 $("#up-btn").css("background-color", "transparent");
-            }, 10);
-        } else if (newKey === 40) {
-            $("#down-btn").css("background-color", "yellow");
-            setTimeout(function () {
-                $("#down-btn").css("background-color", "transparent");
-            }, 10);
-        } else if (newKey === 37) {
-            $("#left-btn").css("background-color", "yellow");
-            setTimeout(function () {
-                $("#left-btn").css("background-color", "transparent");
-            }, 10);
-        } else if (newKey === 39) {
-            $("#right-btn").css("background-color", "yellow");
-            setTimeout(function () {
-                $("#right-btn").css("background-color", "transparent");
-            }, 10);
-        } else if (newKey === 66) {
-            $("#b-btn").css("background-color", "yellow");
-            setTimeout(function () {
-                $("#b-btn").css("background-color", "transparent");
-            }, 10);
-        } else if (newKey === 65) {
-            $("#a-btn").css("background-color", "yellow");
-            setTimeout(function () {
-                $("#a-btn").css("background-color", "transparent");
-            }, 10);
-        } else if (newKey === 13) {
-            $("#start-btn").css("background-color", "yellow");
-            setTimeout(function () {
-                $("#start-btn").css("background-color", "transparent");
-            }, 10);
-        }
-
-        userInput += "" + newKey;
-        if (userInput.indexOf(konamiCode) !== -1) {
-            $("body").css("background-color", "red");
-            let jasonBourneSound = new Audio("../mp3/jason_bourne.mp3");
-            jasonBourneSound.play();
-            userInput = "";
-            setTimeout(function () {
-                alert("You have added 30 lives!");
-            }, 100);
-        }
+            } else if (newKey === 40) {
+                $("#up-btn").css("background-color", "transparent");
+            } else if (newKey === 37) {
+                $("#up-btn").css("background-color", "transparent");
+            } else if (newKey === 39) {
+                $("#up-btn").css("background-color", "transparent");
+            } else if (newKey === 66) {
+                $("#up-btn").css("background-color", "transparent");
+            } else if (newKey === 65) {
+                $("#up-btn").css("background-color", "transparent");
+            } else if (newKey === 13) {
+                $("#up-btn").css("background-color", "transparent");
+            }
+            xboxOffSound.play();
+            codTheme.pause();
+            xboxTurnOn = true;
+		}
     });
+
+
+
 
 
 </script>
