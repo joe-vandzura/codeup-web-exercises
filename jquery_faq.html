@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery Faq</title>
+	<style>
+		dl {
+			user-select: none;
+		}
+
+		.invisible {
+			visibility: hidden;
+		}
+
+		.highlighted {
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+
+<dl>
+	<dt>FAQ 1</dt>
+	<dd class="invisible">FAQ description</dd>
+
+	<dt>FAQ 2</dt>
+	<dd class="invisible">FAQ description</dd>
+
+	<dt>FAQ 3</dt>
+	<dd class="invisible">FAQ description</dd>
+
+	<dt>FAQ 4</dt>
+	<dd class="invisible">FAQ description</dd>
+
+	<dt>FAQ 5</dt>
+	<dd class="invisible">FAQ description</dd>
+
+	<dt>FAQ 6</dt>
+	<dd class="invisible">FAQ description</dd>
+
+	<dt>FAQ 7</dt>
+	<dd class="invisible">FAQ description</dd>
+
+	<dt>FAQ 8</dt>
+	<dd class="invisible">FAQ description</dd>
+
+	<dt>FAQ 9</dt>
+	<dd class="invisible">FAQ description</dd>
+
+	<dt>FAQ 10</dt>
+	<dd class="invisible">FAQ description</dd>
+</dl>
+
+<button id="dd-btn" type="button">Toggle</button>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+	"use strict";
+
+    $("#dd-btn").click(function() {
+        $("dd").toggleClass("invisible");
+	});
+
+
+
+    $("dt").click(function() {
+        $(this).toggleClass("highlighted");
+	});
+
+</script>
+</body>
+</html>

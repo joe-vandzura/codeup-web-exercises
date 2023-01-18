@@ -24,17 +24,20 @@
 	</div>
 </div>
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"
-		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
     "use strict";
 
-    /*let codTheme = new Audio("../mp3/CoD4Theme.mp3");
 
-    let xboxTurnOn = true;
+
+    /*let xboxTurnOn = true;
+
+    let codTheme = new Audio("../mp3/CoD4Theme.mp3");
+    let xboxOnSound = new Audio("../mp3/xbox_start_up.mp3");
+    let xboxOffSound = new Audio("../mp3/xbox_turn_off.mp3");
+
 
     $("#xbox-btn").click(function () {
-        codTheme.pause();
         if (xboxTurnOn === true) {
             xboxOn();
 		} else if (xboxTurnOn === false) {
@@ -43,7 +46,6 @@
     });
 
     let xboxOn = function() {
-        let xboxOnSound = new Audio("../mp3/xbox_start_up.mp3");
         xboxOnSound.play();
         var timeoutId = setTimeout(function () {
             codTheme.play();
@@ -53,15 +55,12 @@
     }
 
     let xboxOff = function() {
-        let xboxOffSound = new Audio("../mp3/xbox_turn_off.mp3");
         xboxOffSound.play();
         codTheme.pause();
         xboxTurnOn = true;
         changeButtonFunctionToOn();
     }
 
-
-    $("#xbox-btn").click(xboxOn());
 
     let changeButtonFunctionToOff = function() {
         $("#xbox-btn").off('click');
@@ -83,37 +82,37 @@
 
         if (newKey === 38) {
             $("#up-btn").css("background-color", "yellow");
-            let timeoutId = setTimeout(function () {
+            setTimeout(function () {
                 $("#up-btn").css("background-color", "transparent");
             }, 10);
         } else if (newKey === 40) {
             $("#down-btn").css("background-color", "yellow");
-            let timeoutId = setTimeout(function () {
+            setTimeout(function () {
                 $("#down-btn").css("background-color", "transparent");
             }, 10);
         } else if (newKey === 37) {
             $("#left-btn").css("background-color", "yellow");
-            let timeoutId = setTimeout(function () {
+            setTimeout(function () {
                 $("#left-btn").css("background-color", "transparent");
             }, 10);
         } else if (newKey === 39) {
             $("#right-btn").css("background-color", "yellow");
-            let timeoutId = setTimeout(function () {
+            setTimeout(function () {
                 $("#right-btn").css("background-color", "transparent");
             }, 10);
         } else if (newKey === 66) {
             $("#b-btn").css("background-color", "yellow");
-            let timeoutId = setTimeout(function () {
+            setTimeout(function () {
                 $("#b-btn").css("background-color", "transparent");
             }, 10);
         } else if (newKey === 65) {
             $("#a-btn").css("background-color", "yellow");
-            let timeoutId = setTimeout(function () {
+            setTimeout(function () {
                 $("#a-btn").css("background-color", "transparent");
             }, 10);
         } else if (newKey === 13) {
             $("#start-btn").css("background-color", "yellow");
-            let timeoutId = setTimeout(function () {
+            setTimeout(function () {
                 $("#start-btn").css("background-color", "transparent");
             }, 10);
         }
@@ -124,7 +123,7 @@
             let jasonBourneSound = new Audio("../mp3/jason_bourne.mp3");
             jasonBourneSound.play();
             userInput = "";
-            var timeoutId = setTimeout(function () {
+            setTimeout(function () {
                 alert("You have added 30 lives!");
             }, 100);
         }
