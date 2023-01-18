@@ -7,54 +7,166 @@
 </head>
 <body>
 
-<dl>
-	<dt>FAQ 1</dt>
-	<dd class="invisible">FAQ description</dd>
+<div id="faqs">
+	<h2>Frequently Asked Questions</h2>
+	<dl>
+		<dt>FAQ 1</dt>
+		<dd class="invisible">FAQ description</dd>
 
-	<dt>FAQ 2</dt>
-	<dd class="invisible">FAQ description</dd>
+		<dt>FAQ 2</dt>
+		<dd class="invisible">FAQ description</dd>
 
-	<dt>FAQ 3</dt>
-	<dd class="invisible">FAQ description</dd>
+		<dt>FAQ 3</dt>
+		<dd class="invisible">FAQ description</dd>
 
-	<dt>FAQ 4</dt>
-	<dd class="invisible">FAQ description</dd>
+		<dt>FAQ 4</dt>
+		<dd class="invisible">FAQ description</dd>
 
-	<dt>FAQ 5</dt>
-	<dd class="invisible">FAQ description</dd>
+		<dt>FAQ 5</dt>
+		<dd class="invisible">FAQ description</dd>
 
-	<dt>FAQ 6</dt>
-	<dd class="invisible">FAQ description</dd>
+		<dt>FAQ 6</dt>
+		<dd class="invisible">FAQ description</dd>
 
-	<dt>FAQ 7</dt>
-	<dd class="invisible">FAQ description</dd>
+		<dt>FAQ 7</dt>
+		<dd class="invisible">FAQ description</dd>
 
-	<dt>FAQ 8</dt>
-	<dd class="invisible">FAQ description</dd>
+		<dt>FAQ 8</dt>
+		<dd class="invisible">FAQ description</dd>
 
-	<dt>FAQ 9</dt>
-	<dd class="invisible">FAQ description</dd>
+		<dt>FAQ 9</dt>
+		<dd class="invisible">FAQ description</dd>
 
-	<dt>FAQ 10</dt>
-	<dd class="invisible">FAQ description</dd>
-</dl>
+		<dt>FAQ 10</dt>
+		<dd class="invisible">FAQ description</dd>
+	</dl>
+	<button id="dd-btn" type="button">Toggle</button>
+</div>
 
-<button id="dd-btn" type="button">Toggle</button>
+<div id="national-parks">
+	<h2>National Parks</h2>
+
+	<h3 id="national-park-one-heading" class="national-park-headings">Carlsbad Caverns</h3>
+	<ul id="national-park-one" class="national-parks-ul">
+		<li>Fact One</li>
+		<li>Fact Two</li>
+		<li>Fact Three</li>
+		<li>Fact Four</li>
+	</ul>
+	<h3 id="national-park-two-heading" class="national-park-headings">Yellowstone</h3>
+	<ul id="national-park-two" class="national-parks-ul">
+		<li>Fact One</li>
+		<li>Fact Two</li>
+		<li>Fact Three</li>
+		<li>Fact Four</li>
+	</ul>
+	<h3 id="national-park-three-heading" class="national-park-headings">Yosemite</h3>
+	<ul id="national-park-three" class="national-parks-ul">
+		<li>Fact One</li>
+		<li>Fact Two</li>
+		<li>Fact Three</li>
+		<li>Fact Four</li>
+	</ul>
+
+	<button id="last-li-btn" type="button">Toggle</button>
+
+</div>
 
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<!----------------------------------------------------------------------------->
+
+
+<div id="pics">
+
+	<div id="slot-one" class="slots">
+		<img width="80%" src="img/car_candy.jpeg">
+		<button id="img-btn-one" class="img-btns" type="button">Toggle</button>
+	</div>
+
+	<div id="slot-two" class="slots">
+		<img width="80%" src="img/queen_candy.jpeg">
+		<button id="img-btn-two" class="img-btns" type="button">Toggle</button>
+	</div>
+
+	<div id="slot-three" class="slots">
+		<img width="80%" src="img/proposal_candy.jpeg">
+		<button id="img-btn-three" class="img-btns" type="button">Toggle</button>
+	</div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
-	"use strict";
+    "use strict";
 
-    $("#dd-btn").click(function() {
+    $("#dd-btn").click(function () {
         $("dd").toggleClass("invisible");
-	});
+    });
 
 
-
-    $("dt").click(function() {
+    $("dt").click(function () {
         $(this).toggleClass("highlighted");
-	});
+    });
+
+    $("#last-li-btn").click(function () {
+        $(".national-parks-ul").each(function (index) {
+            $(this).children().last().css("background-color", "yellow");
+        });
+    });
+
+    $(".national-park-headings").click(function () {
+        $(this).next().children().css("font-weight", "bold");
+    });
+
+    $("li").click(function () {
+        $(this).parent().children().first().css("color", "blue");
+    });
+
+
+
+    //--------------------------------------------------------------
+
+	let slotOneSource = $("#slot-one").children().first().attr("src");
+
+
+    let slotTwoSource = $("#slot-two").children().first().attr("src");
+
+
+    let slotThreeSource = $("#slot-three").children().first().attr("src");
+
+
+    $("#img-btn-one").click(function() {
+        $(this).prev().attr("src", slotTwoSource);
+        $(this).parent().next().children().first().attr("src", slotOneSource);
+        slotOneSource = $("#slot-one").children().first().attr("src");
+		slotTwoSource = $("#slot-two").children().first().attr("src");
+    });
+
+    $("#img-btn-two").click(function() {
+        let coinToss = Math.floor(Math.random() * (3 - 1) + 1);;
+        if (coinToss === 1) {
+            $(this).prev().attr("src", slotOneSource);
+            $(this).parent().prev().children().first().attr("src", slotTwoSource);
+            slotOneSource = $("#slot-one").children().first().attr("src");
+            slotTwoSource = $("#slot-two").children().first().attr("src");
+		} else if (coinToss === 2) {
+			$(this).prev().attr("src", slotThreeSource);
+            $(this).parent().next().children().first().attr("src", slotTwoSource);
+            slotTwoSource = $("#slot-two").children().first().attr("src");
+            slotThreeSource = $("#slot-three").children().first().attr("src");
+		}
+    });
+
+    $("#img-btn-three").click(function() {
+        $(this).prev().attr("src", slotTwoSource);
+        $(this).parent().prev().children().first().attr("src", slotThreeSource);
+        slotTwoSource = $("#slot-two").children().first().attr("src");
+        slotThreeSource = $("#slot-three").children().first().attr("src");
+    });
+
+
 
 </script>
 </body>

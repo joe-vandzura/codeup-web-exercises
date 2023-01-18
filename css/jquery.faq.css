@@ -1,4 +1,4 @@
-dl {
+html {
     user-select: none;
 }
 
@@ -8,4 +8,51 @@ dl {
 
 .highlighted {
     background-color: yellow;
+}
+
+.bolded {
+    font-weight: bold;
+}
+
+.pictures {
+    height: 240px;
+    width: 170px;
+    border: solid 5px black;
+}
+
+.slots {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 300px;
+}
+
+.img-btns {
+    margin: auto;
+    margin-top: 15px;
+    width: 30%;
+
+}
+
+#pics {
+    margin: auto;
+    margin-top: 50px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cute-candy-pic {
+    background-size: contain;
+    background-image: url(../img/car_candy.jpeg);
+}
+
+.really-cute-candy-pic {
+    background-size: contain;
+    background-image: url(../img/queen_candy.jpeg);
+}
+
+.really-really-cute-candy-pic {
+    background-size: contain;
+    background-image: url(../img/proposal_candy.jpeg);
 }
