@@ -1,0 +1,11 @@
+dl {
+    user-select: none;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.highlighted {
+    background-color: yellow;
+}
