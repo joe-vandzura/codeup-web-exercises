@@ -85,21 +85,23 @@
     function doSearch() {
         let input = $("#search-input")[0].value;
         pinThatAddress(input);
+        $("#search-input")[0].value = "";
     }
 
     function pinThatAddress(address) {
         geocode(address, accessToken)
             .then(function (result) {
-                const marker = new mapboxgl.Marker();
+                const marker = new mapboxgl.Marker({"color": "red"});
                 marker.setLngLat(result);
                 marker.addTo(map);
                 markers.push(marker);
+
                 const popUp = new mapboxgl.Popup();
                 popUp.setHTML('<h3>' + address + '</h3>')
                 marker.setPopup(popUp);
             }).catch((function (error) {
             console.log("Not a place");
-        }));
+		}));
     }
 
     function changeZoom(zoom) {
